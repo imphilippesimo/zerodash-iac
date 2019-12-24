@@ -1,8 +1,8 @@
 # IAC Platform
-Docker Infra as code for services needed for snapanonym projects deployment
+Docker Infra as code for services needed for zerodash project deployment
 
 ## Services           
-Jenkins, Sonarqube, Mysql, Adminer
+Jenkins, Sonarqube, Mysql, Adminer, ElasticSearch, Logstash, Kibana, Redis 
 
 ## Deployment       
 * Clone the project,      

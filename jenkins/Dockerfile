@@ -2,11 +2,11 @@ FROM jenkins/jenkins:lts
 
 #RUN version=2.89 && sha=$(curl -q -fsSL "https://repo.jenkins-ci.org/releases/org/jenkins-ci/main/jenkins-war/${version}/jenkins-war-${version}.war.sha256" )
 #
-ENV SNAPANONYM_DB_HOST=35.174.133.79\
-    SNAPANONYM_DB_PORT=3307\
-    SNAPANONYM_DB_NAME=snapanonyme\
-    SNAPANONYM_DB_USER=snapanonyme\
-    SNAPANONYM_DB_PASSWORD=snapanonyme
+ENV ZERODASH_DB_HOST=35.174.133.79\
+    ZERODASH_DB_PORT=3307\
+    ZERODASH_DB_NAME=zerodash\
+    ZERODASH_DB_USER=zerodash\
+    ZERODASH_DB_PASSWORD=zerodash
 #    KEY_STORE=~/keystore
 
 USER root

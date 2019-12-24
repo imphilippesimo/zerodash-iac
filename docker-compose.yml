@@ -31,9 +31,9 @@ services:
     image: mysql:5.7.20
     environment:
       - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_USER=snapanonyme
-      - MYSQL_PASSWORD=snapanonyme
-      - MYSQL_DATABASE=snapanonyme
+      - MYSQL_USER=zerodash
+      - MYSQL_PASSWORD=zerodash
+      - MYSQL_DATABASE=zerodash
     ports:
       - 3307:3306
     container_name: mysql
