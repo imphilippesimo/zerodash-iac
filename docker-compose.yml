@@ -22,8 +22,8 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - /usr/bin/docker:/usr/bin/docker
       - /keystore:/keystore
-        depends_on:
-          - sonarqube
+    depends_on:
+      - sonarqube
     networks:
       - webnet
 
