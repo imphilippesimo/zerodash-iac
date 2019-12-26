@@ -9,12 +9,15 @@ services:
     environment:
       - discovery.type=single-node
       - ES_JAVA_OPTS=-Xms512m -Xmx512m
+    container_name: elasticsearch
     networks:
       - webnet
 
   logstash:
     build:
       context: logstash/
+    environment:
+      - LS_JAVA_OPTS=-Xms512m -Xmx512m
     volumes:
       -  /home/ec2-user/zerodash/zerodash:/zerodash
     container_name: logstash
