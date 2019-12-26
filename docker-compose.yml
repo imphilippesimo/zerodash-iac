@@ -1,6 +1,32 @@
 version: '2'
 services:
 
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.5.1
+    ports:
+      - 9200:9200
+      - 9300:9300
+    environment:
+      - discovery.type=single-node
+    networks:
+      - webnet
+
+  logstash:
+    build:
+      context: logstash/
+    container_name: logstash
+    volumes:
+      -  /home/ec2-user/zerodash/zerodash:/zerodash
+    networks:
+      - webnet
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:7.5.1
+    ports:
+      - 5601:5601
+    networks:
+      - webnet
+
   sonarqube:
     build:
       context: sonarqube/
