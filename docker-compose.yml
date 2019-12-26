@@ -8,15 +8,16 @@ services:
       - 9300:9300
     environment:
       - discovery.type=single-node
+      - ES_JAVA_OPTS=-Xms512m -Xmx512m
     networks:
       - webnet
 
   logstash:
     build:
       context: logstash/
-    container_name: logstash
     volumes:
       -  /home/ec2-user/zerodash/zerodash:/zerodash
+    container_name: logstash
     networks:
       - webnet
 
@@ -24,6 +25,7 @@ services:
     image: docker.elastic.co/kibana/kibana:7.5.1
     ports:
       - 5601:5601
+    container_name: kibana
     networks:
       - webnet
 
@@ -80,6 +82,7 @@ services:
       - 8085:8080
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
+    container_name: visualizer
     networks:
       - webnet
 networks:
