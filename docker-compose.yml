@@ -17,6 +17,10 @@ services:
       context: logstash/
     environment:
       - LS_JAVA_OPTS=-Xms512m -Xmx512m
+    ports:
+      - 5044:5044
+      - 9600:9600
+      - 9700:9700
     volumes:
       -  /home/ec2-user/zerodash/zerodash:/zerodash
     container_name: logstash
