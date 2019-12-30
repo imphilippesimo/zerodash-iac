@@ -24,7 +24,7 @@ services:
       - 9600:9600
       - 9700:9700
     volumes:
-      -  /home/ec2-user/zerodash/zerodash:/zerodash
+      -  /home/ec2-user/zerodash/zerodash-back/logs:/logs
     container_name: logstash
     depends_on:
       - elasticsearch
