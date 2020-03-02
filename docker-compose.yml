@@ -95,14 +95,6 @@ services:
     container_name: adminer
     networks:
       - webnet
-  visualizer:
-    image: dockersamples/visualizer:stable
-    ports:
-      - 8085:8080
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-    container_name: visualizer
-    networks:
-      - webnet
+
 networks:
   webnet:
