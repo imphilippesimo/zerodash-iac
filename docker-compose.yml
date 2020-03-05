@@ -62,7 +62,6 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - /usr/bin/docker:/usr/bin/docker
       - ~/zerodash:/root/zerodash
-      - /keystore:/keystore
     depends_on:
       - sonarqube
     networks:
@@ -89,6 +88,5 @@ services:
     container_name: adminer
     networks:
       - webnet
-
 networks:
   webnet:

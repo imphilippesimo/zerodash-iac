@@ -1,0 +1,23 @@
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  namespace: default
+  name: dr-reader
+rules:
+  - apiGroups: ["apps","extensions"]
+    resources: ["deployments/rollback"]
+    verbs: ["get", "patch", "watch", "list", "create"]
+
+---
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: dr-reader
+subjects:
+  - kind: ServiceAccount
+    name: default
+    namespace: default
+roleRef:
+  kind: ClusterRole
+  name: dr-reader
+  apiGroup: rbac.authorization.k8s.io
