@@ -2,18 +2,20 @@
 Kubernetes Infra as code for services needed for zerodash project deployment
 
 ## Services           
-Jenkins, Sonarqube, Mysql, Adminer, ElasticSearch, Logstash, Kibana 
+Jenkins, Mysql, dashboard.
+
+{ElasticSearch, Logstash, Kibana, Sonarqube} : Later 
 
 
 ## Deployment
-* Prerequisites
+###Prerequisites
 
 We suppose you already have a access to a running kubernetes cluster
 Make sure you have installed locally Kubectl and that it's connected to your cluster
 
-* Clone the project
+Clone the project and open a terminal at the project's root
 
-* Installing jenkins
+###Installing jenkins
 
 `cd jenkins && ./init.sh`
 
@@ -51,11 +53,7 @@ Your NODE_IP should be a public address, otherwise get your node ip from your pr
 
 > Note do not forget to open the corresponding ports on your hosts
 
-
-*Container template configuration*
-Use the kubernetes plugins to configure maven, docker and kubectl container templates in jenkins
-
-*Credential Configuation*   
+*Credential Configuration*   
 
 This is about defining the credentials to communicate with github in order to checkout code and the docker registry    
 in order to push the artifacts at the end of each build.    
@@ -92,7 +90,7 @@ In the **Pipeline Script** section, select in the dropdown list `Pipeline script
 Enter the backend git repository URL, choose the GithubCredentials that we created earlier, add the `master` and `develop` branches as we want to trigger the pipeline each time someone pushes to one of these branches.
 Then save the pipeline and it's done.
 
-*Github webhook configuration*
+***Github webhook configuration***
 
 
 In order for github to push `push` events to jenkins, we must tell github where is jenkins situated by creating a webhook.    
@@ -102,7 +100,7 @@ Choose `application/json` as Content type
 Leave the remaining as they are then Validate. Github will send a test ping to the jenkins server, if everything is ok, then you will notice a green check preceeding your webhook.
   
 
-* Installing mysql
+#Installing mysql
 
 Edit the file mysql/init.sh and replace the credentials with your own
 Then
@@ -117,8 +115,9 @@ Then
 
 
  
-**Kubernetes dashboard config**
-https://docs.ovh.com/gb/en/kubernetes/installing-kubernetes-dashboard/
+#Kubernetes dashboard config
+
+[Use this documentation](https://docs.ovh.com/gb/en/kubernetes/installing-kubernetes-dashboard/)
 
 
 
